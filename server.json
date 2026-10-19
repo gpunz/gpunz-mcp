@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "nz.gpu/gpu-cloud",
   "title": "gpu.nz GPU cloud",
-  "description": "Rent cloud GPUs from AI agents: search GPUs and live prices, estimate VRAM, launch, monitor and stop servers.",
+  "description": "Rent cloud GPUs from AI agents: live prices, VRAM estimates, launch, logs and stop.",
   "version": "1.0.0",
   "websiteUrl": "https://gpu.nz/en/docs/mcp",
   "repository": {
@@ -27,7 +27,9 @@
     {
       "registryType": "oci",
       "identifier": "ghcr.io/gpunz/gpunz-mcp:1.0.0",
-      "transport": { "type": "stdio" },
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
         {
           "name": "GPUNZ_API_KEY",
