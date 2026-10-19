@@ -1,0 +1,20 @@
+{
+  "name": "gpunz-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the gpu.nz GPU cloud: search GPUs and prices, estimate VRAM, rent, monitor and stop GPU servers from Claude, Cursor, Codex and other AI agents.",
+  "type": "module",
+  "bin": { "gpunz-mcp": "index.js" },
+  "main": "index.js",
+  "files": ["index.js", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node test.js" },
+  "keywords": ["mcp", "model-context-protocol", "gpu", "gpu-cloud", "cloud-gpu", "rent-gpu", "llm", "comfyui", "ollama", "vllm", "ai-agents"],
+  "homepage": "https://gpu.nz/en/docs/mcp",
+  "repository": { "type": "git", "url": "git+https://github.com/gpunz/gpunz-mcp.git" },
+  "license": "MIT",
+  "mcpName": "nz.gpu/gpu-cloud",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "zod": "4.6.5"
+  }
+}

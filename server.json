@@ -1,0 +1,41 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "nz.gpu/gpu-cloud",
+  "title": "gpu.nz GPU cloud",
+  "description": "Rent cloud GPUs from AI agents: search GPUs and live prices, estimate VRAM, launch, monitor and stop servers.",
+  "version": "1.0.0",
+  "websiteUrl": "https://gpu.nz/en/docs/mcp",
+  "repository": {
+    "url": "https://github.com/gpunz/gpunz-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gpu.nz/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer gpz_… API key from https://gpu.nz/console/keys. Optional: without it only GPU search, prices and VRAM estimates work.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "oci",
+      "identifier": "ghcr.io/gpunz/gpunz-mcp:1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "GPUNZ_API_KEY",
+          "description": "API key (gpz_…) from https://gpu.nz/console/keys. Optional: without it only browsing tools work.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
