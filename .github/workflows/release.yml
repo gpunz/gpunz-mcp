@@ -33,3 +33,18 @@ jobs:
           tags: |
             ghcr.io/gpunz/gpunz-mcp:${{ steps.v.outputs.version }}
             ghcr.io/gpunz/gpunz-mcp:latest
+
+  # the published image answers over stdio: the same smoke test as CI, through docker run
+  image-test:
+    needs: image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Test the image
+        run: |
+          BRIDGE_CMD="[\"docker\",\"run\",\"-i\",\"--rm\",\"ghcr.io/gpunz/gpunz-mcp:${GITHUB_REF_NAME#v}\"]" node test.js
